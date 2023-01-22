@@ -11,7 +11,7 @@ fi
 
 SD_IMG=debian-riscv64/debian-riscv64.sd.img
 
-for DEVICE in `ls /dev/disk/by-path/*-usb-*-scsi-*` ; do
+for DEVICE in `ls /dev/mmcblk0` ; do
   case $DEVICE in
   *-part*)
     continue
@@ -30,8 +30,8 @@ for DEVICE in `ls /dev/disk/by-path/*-usb-*-scsi-*` ; do
     sudo partprobe ${DEVICE}
     echo ", +" | sudo sfdisk -N 2 ${DEVICE}
     sudo partprobe ${DEVICE}
-    sudo fsck -f ${DEVICE}2
-    sudo resize2fs ${DEVICE}2
+    sudo fsck -f ${DEVICE}p2
+    sudo resize2fs ${DEVICE}p2
     sudo sync
     break
     ;;

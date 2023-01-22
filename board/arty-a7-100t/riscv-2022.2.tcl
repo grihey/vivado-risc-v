@@ -51,7 +51,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
    create_project project_1 myproj -part xc7a100tcsg324-1
-   set_property BOARD_PART digilentinc.com:arty-a7-100:part0:1.1 [current_project]
+   set_property BOARD_PART digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
 }
 
 
