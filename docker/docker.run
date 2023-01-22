@@ -1,0 +1,10 @@
+export VIVADO_DIR=/opt/Xilinx
+export SELF=$(pwd)
+export TOOLCHAIN=/opt/riscv
+
+docker run -it \
+           -v ${VIVADO_DIR}:/opt/Xilinx \
+           -v ${SELF}:/vivado-risc-v \
+           -v ${TOOLCHAIN}:/riscv-toolchain \
+           --cap-add=SYS_ADMIN --privileged=true \
+           awsm_rocket
